@@ -24,11 +24,17 @@ public class ImageProgressBar extends RelativeLayout {
 
     public ImageProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.image_progress_bar, this, true);
 
-        grayImage = (ImageView) findViewById(R.id.gray);
-        colorImage = (ImageView) findViewById(R.id.color);
+        setGravity(CENTER_IN_PARENT);
+        colorImage = new ImageView(context);
+        colorImage.setScaleType(ImageView.ScaleType.MATRIX);
+        colorImage.setImageResource(R.drawable.ic_launcher);
+        addView(colorImage);
+
+        grayImage = new ImageView(context);
+        grayImage.setScaleType(ImageView.ScaleType.MATRIX);
+        addView(grayImage);
+
     }
 
     public void setDrawable(Drawable d) {
